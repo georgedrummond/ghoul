@@ -27,9 +27,25 @@ Gem::Specification.new do |s|
   
   s.post_install_message = <<-message
   
-  
-Thanks for installing ghoul, the super simple git manager.
-  
+#################################################
+#
+# Thanks for installing Ghoul and giving it a go!
+#
+# This is a proof of concept release and in the
+# next few months I hope to add to Ghoul and
+# make it more fully featured.
+#
+# I think the idea behind Ghoul is kind of cool
+# and if you do too, why not contribute and
+# check out our github page.
+#
+# => http://github.com/georgedrummond/ghoul
+#
+#################################################
+
+To Start the Ghoul server run:
+
+    ghoul server
   
   message
 end

@@ -7,8 +7,6 @@ require "coderay"
 require "redcarpet"
 require "time"
 
-$:.unshift File.dirname(__FILE__)
-
 def require_all(path)
   glob = File.join(File.dirname(__FILE__), path, '*.rb')
   Dir[glob].each do |f|
