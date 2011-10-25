@@ -1,7 +1,7 @@
 module Ghoul
   module Repository
     def repos_path
-      home = Dir.home
+      home = ENV['HOME']
       repos_path = File.join(home, "repos")
       return repos_path
     end

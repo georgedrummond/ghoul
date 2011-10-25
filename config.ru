@@ -10,7 +10,7 @@ require "ghoul_grack"
 #
 #  ~/repos
 #    => /User/georgedrummond/repos
-project_root = File.join(Dir.home, "repos")
+project_root = File.join(ENV['HOME'], "repos")
 
 config = {
   :project_root => project_root,

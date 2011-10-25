@@ -36,7 +36,7 @@ module Ghoul
           puts message
           
           ENV['RACK_ENV'] = "production"
-          Rack::Server.new(:config => config_path, :Port => 1966).start
+          Rack::Server.new(:config => config_path, :Port => 3003).start
       
         rescue
           puts "closedd"
