@@ -9,7 +9,10 @@
   
   <p>Please note that <b>Ghoul</b> currently <b>does not use any form of authentication</b>. This will be added in future versions. Until we build in authentication please only use this to host your repositories in a secure environment as <b>anyone can push to your repository</b>.</p>
   
+  <pre><code>Want to delete this repository? Just delete the folder at <%= repos_path %>/<%= @repository %></code></pre>
+  <!--
   <form action="<%= url("/repository/#{@repository}/delete") %>" method="post" style="margin-top:40px">
     <button class="danger button">Delete repository</button>
   </form>
+  -->
 </div>
