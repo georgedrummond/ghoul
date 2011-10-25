@@ -13,7 +13,7 @@ module Ghoul
     end
     
     def repository_path(repository)
-      url "/#{repository}/trunk/tree"
+      url "/repository/#{repository}/trunk/tree"
     end
     
     def repository_git_url(repository)
@@ -21,7 +21,7 @@ module Ghoul
     end
     
     def repository_settings_path(repository)
-      url "/#{repository}/settings"
+      url "/repository/#{repository}/settings"
     end
     
     def clone_url(repository)
@@ -29,28 +29,25 @@ module Ghoul
     end
     
     def commits_path(repository)
-      url "/#{repository}/commits"
+      url "/repository/#{repository}/commits"
     end
     
     def commit_path(repository, commit)
-      url "/#{repository}/commits/#{commit}"
+      url "/repository/#{repository}/commits/#{commit}"
     end
-    
-    def tree_for_commit_path(repository, commit)
-      url "/#{repository}/#{commit}/tree"
-    end
-    
-    def blob_for_commit_path(repository, commit, splat=nil, name=nil)
-      url "/#{repository}/#{commit}/tree/#{splat}/#{name}"
+        
+    def blob_for_commit_path(repository, commit, splat="", name="")
+      parts = [repository, commit, "tree", splat, name].find_all { |i| i != ""}
+      url "/repository/#{parts.join("/")}"
     end
     alias_method :tree_for_commit_path, :blob_for_commit_path
     
     def raw_blob_for_commit_path(repository, commit, splat)
-      url "/#{repository}/#{commit}/raw/#{splat}"
+      url "/repository/#{repository}/#{commit}/raw/#{splat}"
     end
     
     def diff_for_commit_path(repository, commit)
-      url "/#{repository}/#{commit}/diff"
+      url "/repository/#{repository}/#{commit}/diff"
     end
   end
 end

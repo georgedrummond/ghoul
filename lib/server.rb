@@ -29,7 +29,7 @@ module Ghoul
           #
           #############################################################
           
-          Service is running on http://0.0.0.0:1966
+          Starting service on http://0.0.0.0:3003
 
           start_message
           
@@ -37,9 +37,11 @@ module Ghoul
           
           ENV['RACK_ENV'] = "production"
           Rack::Server.new(:config => config_path, :Port => 3003).start
-      
+          
+          # Open the users browser to our new server
+          system("open http://0.0.0.0:3003")
         rescue
-          puts "closedd"
+          puts "  --> The ghoul shut down."
         end
 
     end    

@@ -6,8 +6,8 @@
 
 
 #commits
-  .commit=partial(:commit, :commit => @commit)
-  - unless params[:commit] == "trunk" || params[:commit] == nil
+  .commit=partial(:commit, :commit => @newest_commit)
+  -if @commit.id != @newest_commit.id
     .indent.commit=partial(:commit, :commit => @commit)
     
 -unless @hide_breadcrumbs
