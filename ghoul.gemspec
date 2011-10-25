@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency "georgedrummond_sinatra_helpers"
   s.add_dependency "ghoul_grack", "0.0.1"
   s.add_dependency "coderay"
-  s.add_dependency "rack-tunnel"
   s.add_dependency "redcarpet"
   
   s.post_install_message = <<-message
