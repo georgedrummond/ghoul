@@ -1,0 +1,24 @@
+## Global Setup:
+
+    git config --global user.name "Your Name"
+    git config --global user.email author@accountsapp.com
+
+## Next Steps:
+
+    mkdir <%=@repository%>
+    cd <%=@repository%>
+    touch README
+    git init
+    git add README
+    git commit -m 'first commit'
+    git remote add origin <%=repository_git_url(@repository)%>
+    git push -u origin master
+
+## Existing Repository:
+
+    cd existing_repository
+    git remote add origin <%=repository_git_url(@repository)%>
+    git push -u origin master    
+
+When you're done, [click here](<%= repository_path(@repository)%>)
+

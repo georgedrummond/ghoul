@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    =stylesheet_link_tag :app, :coderay, :buttons
+    %title #{locals[:title]} - Ghoul
+  %body
+    .container
+      #header
+        %a#logo{:href => "/"} Ghoul #{Ghoul::VERSION}
+        %ul
+          %li=link_to "Guides", guides_path
+          %li=link_to "Repositories", repositories_path
+          %li
+            %a{:href => "/new_repo", :class => "thoughtbot_button"} New Repo
+          
+      #page
+        #guide~locals[:text]
+      
+      =partial :footer

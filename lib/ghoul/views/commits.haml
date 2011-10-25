@@ -1,0 +1,8 @@
+-title "Recent commits for #{@repository}"
+
+=partial :repo_header
+
+#commits
+  -@commits.each do |commit|
+    .commit.indent=partial(:commit, :commit => commit)
+    

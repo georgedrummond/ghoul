@@ -1,0 +1,7 @@
+#repo_header
+  %h2=@repository
+  #actions
+    %a{:class => "button log icon", :href => commits_path(@repository)} Commits
+    %a{:class => "button settings icon", :href => repository_settings_path(@repository)} Settings
+    %a{:class => "button home icon", :href => repository_path(@repository)} Trunk
+    

@@ -1,0 +1,2 @@
+#breadcrumbs
+  #{link_to "Repositories", repositories_path}/#{link_to @repository, repository_path(@repository)}/#{breadcrumbs_from_splat(@repository, params[:commit], params[:splat][0])}

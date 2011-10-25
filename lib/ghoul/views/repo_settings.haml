@@ -1,0 +1,16 @@
+-title "settings fof #{@repository}"
+
+=partial :repo_top_bar
+
+#repo_settings
+  :markdown
+    ## About this #{@repository} repository
+    
+    You can clone your repository by running the command ```git clone #{clone_url(@repository)}```.
+    
+    Please note that *Ghoul* currently **does not use any form of authentication**. This will be added in
+    future versions. Until we build in authentication please only use this to host your repositories in
+    a secure environment as **anyone can push to your repository**. 
+  %form{:action => "/#{@repository}/delete", :method => :post}
+    %button.button.danger Delete repository
+    %a{:href => "/#{@repository}/delete", :class => [:button, :danger]} Delete repository
