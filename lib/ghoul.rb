@@ -21,5 +21,5 @@ end
 
 require "version"
 require_all "ghoul/lib"
-require "./lib/ghoul/app"
+require "ghoul/app"
 
