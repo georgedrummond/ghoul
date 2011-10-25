@@ -1,0 +1,8 @@
+<div id="repo_header">
+  <h2><%=@repository %></h2>
+  <div id="actions">
+    <a class="button log icon" href="<%=commits_path(@repository)%>">Commits</a>
+    <a class="button settings icon" href="<%=repository_settings_path(@repository)%>">Settings</a>
+    <a class="button home icon" href="<%=repository_path(@repository)%>">Trunk</a>
+  </div>
+</div>

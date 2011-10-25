@@ -5,9 +5,7 @@ module Ghoul
       repos_path = File.join(home, "repos")
       return repos_path
     end
-    
-    #alias_method :home, :repos_path
-    
+        
     def repository(name)
       path = File.join(repos_path, name)
       return Grit::Repo.new(path, :is_bare => true)

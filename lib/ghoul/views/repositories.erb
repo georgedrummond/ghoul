@@ -1,0 +1,73 @@
+<% title "Repositories" %>
+
+<% unless @repositories.count == 2 %>
+<h1>Repositories</h1>
+<div id="repositories">
+  <% @repositories.each do |repo| %>
+    <% unless repo == "." || repo == ".." %>
+      <div class="repository">
+        <div class="name"><%= link_to repo, repository_path(repo) %></div>
+        <div class="data">
+          <% begin %>
+            <% last_commit = commit_from_repository(repo, "trunk") %>
+            <div class="message">
+              Last updated by <%= last_commit.author.name %> on <%= date_format(last_commit.committed_date) %>
+            </div>
+          <% rescue %>
+            <div class="message">New repository</div>
+          <% end %>
+        </div>        
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<% else %>
+
+<div id="guide">
+<h1>Ghoul - Prettier Git For Everyone :)</h1>
+<p><a href="http://github.com/georgedrummond/ghoul">Ghoul</a> is a simple yet good looking interface for your git repositories written in <a href="http://sinatrarb.com">sinatra</a>. It is currently only for demonstration purposes and use on your secure local machine as it does not enforce any authentication as of yet.</p>
+
+<h2>Installation</h2>
+<p>Ghoul can be run either using the ghoul gem or by downloading the git repository and running through the rackup command.</p>
+<pre><code># Installing via rubygems
+
+gem install ghoul
+ghoul server</code></pre>
+<pre><code># Installing from the git repository
+  
+git clone http://github.com/georgedrummond/ghoul
+cd ghoul
+bundle install
+rackup
+</code></pre>
+
+<h2>How it works</h2>
+<p>Ghoul uses the grit, written by the guys at github for parsing your repositories which are located in a folder named "repos" within your
+  home folder e.g. /Users/georgedrummond/repos. For git push, ghoul uses grack. Grack has no authentication so ghoul should only be used
+  on your local machine.</p>
+
+<h2>License</h2>
+<pre><code>Copyright (c) 2011 George Drummond, george@accountsapp.com
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</code></pre>
+</div>
+
+<% end %>
+

@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["George Drummond"]
   s.email       = ["george@accountsapp.com"]
   s.homepage    = ""
-  s.summary     = %q{Ghoul is ...}
-  s.description = %q{Ghoul is ...}
+  s.summary     = %q{Ghoul is a simple yet good looking interface for your git repositories written in sinatra. It is currently only for demonstration purposes and use on your secure local machine as it does not enforce any authentication as of yet.}
+  s.description = %q{Ghoul is a simple yet good looking interface for your git repositories written in sinatra. It is currently only for demonstration purposes and use on your secure local machine as it does not enforce any authentication as of yet.}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "sinatra", "1.3.1"
-  s.add_dependency "haml"
   s.add_dependency "sass"
   s.add_dependency "grit"
   s.add_dependency "georgedrummond_sinatra_helpers"

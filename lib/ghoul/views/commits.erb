@@ -1,0 +1,11 @@
+<% title "Recent commits for #{@repository}" %>
+
+<%=partial(:repo_header) %>
+
+<div id="commits">
+  <% @commits.each do |commit| %>
+    <div class="commit indent">
+      <%=partial(:commit, :commit => commit) %>
+    </div>
+  <% end %>
+</div>

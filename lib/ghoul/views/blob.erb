@@ -1,0 +1,11 @@
+<% title "#{@repository} #{params[:splat][0]}" %>
+
+<%=partial(:repo_header) %>
+
+<div class="section_bar">
+  <%=link_to "Raw", raw_blob_for_commit_path(@repository, params[:commit], params[:splat][0]) %>
+</div>
+
+<div id="blob">
+  <%=@syntaxer%>
+</div>

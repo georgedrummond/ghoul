@@ -1,24 +1,34 @@
-## Global Setup:
+<% title "Setting up your repository" %>
 
-    git config --global user.name "Your Name"
-    git config --global user.email author@accountsapp.com
+<div id="guide">
+<h2>Global Setup:</h2>
+<pre><code>
+git config --global user.name "Your Name"
+git config --global user.email author@accountsapp.com
+</code>
+</pre>
 
-## Next Steps:
+<h2>Next Steps:</h2>
+<pre><code>
+mkdir <%=@repository%>
+cd <%=@repository%>
+touch README
+git init
+git add README
+git commit -m 'first commit'
+git remote add origin <%=repository_git_url(@repository)%>
+git push -u origin master
+</code>
+</pre>
 
-    mkdir <%=@repository%>
-    cd <%=@repository%>
-    touch README
-    git init
-    git add README
-    git commit -m 'first commit'
-    git remote add origin <%=repository_git_url(@repository)%>
-    git push -u origin master
+<h2>Existing Repository:</h2>
+<pre><code>
+cd existing_repository
+git remote add origin <%=repository_git_url(@repository)%>
+git push -u origin master    
+</code>
+</pre>
 
-## Existing Repository:
-
-    cd existing_repository
-    git remote add origin <%=repository_git_url(@repository)%>
-    git push -u origin master    
-
-When you're done, [click here](<%= repository_path(@repository)%>)
+<p>When you're done, <%= link_to "click here", repository_path(@repository) %></p>
+</div>
 

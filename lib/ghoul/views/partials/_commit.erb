@@ -1,0 +1,10 @@
+<%= gravatar_image(commit.author.email, 30) %>
+
+<div class="data">
+  <div class="message"><%= link_to commit.message, tree_for_commit_path(@repository, commit.id) %></div>
+  <div class="meta">
+    <div class="name"><%= mail_to commit.author.email, commit.author.name %></div>
+    <div class="committed_date"><%= date_format commit.committed_date %></div>
+    <div class="diff"><%= link_to "diff", diff_for_commit_path(@repository, commit.id) %></div>
+  </div>
+</div>

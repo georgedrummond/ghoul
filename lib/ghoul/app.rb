@@ -19,7 +19,7 @@ module Ghoul
     end
     
     get '/new_repo' do
-      render_guide :new_repo, "New repository"
+      erb :new_repo
     end
     
     post '/new_repo' do
@@ -38,19 +38,20 @@ module Ghoul
     end
     
     get "/repository/:repository/settings" do
+      @repository = params[:repository]
       @hide_breadcrumbs = true
-      haml :repo_settings
+      erb :repo_settings
     end
     
     post "/repository/:repository/delete" do
       require "FileUtils"
-      FileUtils.rm_rf File.join(repos_path, @repository)
+      FileUtils.rm_rf File.join(repos_path, params[:repository])
       redirect("/")
     end
         
     get "/repository/:repository/:commit/diff/?" do
       @hide_breadcrumbs = true
-      haml :diff
+      erb :diff
     end
     
     get "/repository/:repository/commits/?" do
@@ -59,18 +60,18 @@ module Ghoul
       @commit = commit_from_repository @repository, "trunk"
       @newest_commit = commit_from_repository(@repository, "trunk")
       @hide_breadcrumbs = true
-      haml :commits
+      erb :commits
     end
     
     get "/repository/:repository/commits/:commit/?" do
       @repository = params[:repository]
       @commit = repository(@repository).commit(params[:commit])
-      haml :diffs
+      erb :diffs
     end
     
     get "/repositories" do
       @repositories = repositories
-      haml :repositories
+      erb :repositories
     end
     
     get '/repository/:repository/:commit/raw/*' do
@@ -88,24 +89,24 @@ module Ghoul
       if resource.is_a?(Grit::Tree) || params[:splat][0] == ""
         @resource = resource
         @splat = params[:splat]
-        haml :tree
+        erb :tree
       else
         @blob = resource  
         @syntaxer = CodeRay.scan(@blob.data, :plain).div(:line_numbers => :table)
-        haml :blob
+        erb :blob
       end
     end
     
     error 404 do
-      render_guide :'404', "File not found"
+      erb :'404'
     end
     
     error do
-      render_guide :'error', "Ghoul encountered an error"
+      #erb :'error'
     end
     
     error  NoCommits do
-      render_guide :no_commits, "#{@repository} setup"
+      erb :no_commits
     end
   end
 end

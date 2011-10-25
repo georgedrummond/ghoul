@@ -10,6 +10,7 @@ require "grit"
 require "coderay"
 require "redcarpet"
 require "time"
+require "erb"
 
 def require_all(path)
   glob = File.join(File.dirname(__FILE__), path, '*.rb')

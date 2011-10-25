@@ -1,7 +1,0 @@
-=gravatar_image(commit.author.email, 30)
-.data
-  .message=link_to commit.message, tree_for_commit_path(@repository, commit.id)
-  .meta
-    .name=mail_to commit.author.email, commit.author.name
-    .committed_date on #{date_format commit.committed_date}
-    .diff=link_to "diff", diff_for_commit_path(@repository, commit.id)

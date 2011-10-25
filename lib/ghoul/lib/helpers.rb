@@ -34,18 +34,13 @@ module Ghoul
     
     def partial(template, locals = {})
       template=('partials/_' + template.to_s).to_sym
-      haml(template, :layout => false, :locals => locals)      
+      erb(template, :layout => false, :locals => locals)      
     end
     
     def date_format(datetime)
       datetime.strftime("%d %b %Y @ %H:%M")
     end
-    
-    def render_guide(template, title)
-      markdown_text = erb(template)
-      return haml :guide, :locals => {:text => markdown(markdown_text), :title => title}
-    end
-    
+        
     def clippy(text, bgcolor='#FFFFFF')
       html = <<-EOF
         <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
