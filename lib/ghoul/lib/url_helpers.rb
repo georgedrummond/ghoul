@@ -25,7 +25,7 @@ module Ghoul
     end
     
     def clone_url(repository)
-      return "http://0.0.0.0:9292/repo/#{repository}"
+      return "http://#{@request.host_with_port}/repo/#{repository}"
     end
     
     def commits_path(repository)

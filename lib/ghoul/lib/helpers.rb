@@ -1,20 +1,13 @@
 module Ghoul
   module Helpers
     def human_file_size(filesize)
-      # This doesnt really work
-      if filesize < 1023
+      if filesize <= 1023
         return "#{filesize} bytes"
+      elsif filesize <= 1024*1024
+        return "#{filesize/1024} KB"
       else
-        filesize = filesize/1024
+        return "#{filesize/1024/1024} MB"
       end
-      
-      if filesize < 1023
-        return "#{filesize} KB"
-      else
-        filesize = filesize/1024
-      end
-        
-        return "#{filesize} MB"
     end
     
     def title(title)
@@ -24,16 +17,16 @@ module Ghoul
     def breadcrumbs_from_splat(repository, commit, splat)
       crumbs = splat.split("/")
       html = []
-      path = ""
+      path = []
       crumbs.each do |crumb|
-        path += "/#{crumb}"
-        html << "#{link_to( crumb, tree_for_commit_path(repository, commit, path) )}"
+        path << crumb
+        html << "#{link_to( crumb, tree_for_commit_path(repository, commit, splat, path.join('/')) )}"
       end
       return html.join("/")
     end
     
     def partial(template, locals = {})
-      template=('partials/_' + template.to_s).to_sym
+      template = ('partials/_' + template.to_s).to_sym
       erb(template, :layout => false, :locals => locals)      
     end
     
