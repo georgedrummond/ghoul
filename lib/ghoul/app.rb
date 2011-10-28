@@ -12,7 +12,6 @@ module Ghoul
     
     before '/*' do
       if !repos_path_exists? && params[:splat][0] != "css/app.css"
-        puts "splat=#{params[:splat]}"
         halt erb(:setup_repos_path)
       end
     end
