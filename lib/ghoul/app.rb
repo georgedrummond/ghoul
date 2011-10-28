@@ -8,7 +8,7 @@ module Ghoul
     set :public_folder, File.join(File.dirname(__FILE__), 'public')
     set :views, File.join(File.dirname(__FILE__), 'views')
     
-    #disable :logging, :dump_errors, :raise_errors, :show_exceptions
+    disable :logging, :dump_errors, :raise_errors, :show_exceptions
     
     before '/*' do
       if !repos_path_exists? && params[:splat][0] != "css/app.css"

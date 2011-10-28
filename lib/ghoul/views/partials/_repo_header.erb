@@ -1,8 +1,12 @@
 <%= partial :repo_top_bar %>
 
+
 <div id="repo_info">
   <div id="git_url"><%= repository_git_url(@repository) %></div>
   <div id="clippy"><%= clippy(repository_git_url(@repository), '#f1f1f1') %></div>
+  <% unless repository(@repository).bare %>
+  <p>Push is not enabled for this repository, you will need to setup a <b>--bare</b> repository directly from ghoul for push to be enabled</p>
+  <% end %>
 </div>
 
 <div id="commits">
