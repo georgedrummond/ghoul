@@ -10,6 +10,13 @@ module Ghoul
     
     disable :logging, :dump_errors, :raise_errors, :show_exceptions
     
+    before '/:path' do
+      unless repos_path_exists? && params[:path] != "css/app.css"
+        puts 'doesnt exist'
+        halt erb(:setup_repos_path)
+      end
+    end
+    
     get "/css/app.css" do
       sass :app
     end

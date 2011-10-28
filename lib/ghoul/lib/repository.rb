@@ -5,6 +5,10 @@ module Ghoul
       repos_path = File.join(home, "repos")
       return repos_path
     end
+    
+    def repos_path_exists?
+      File.directory? repos_path
+    end
         
     def repository(name)
       path = File.join(repos_path, name)

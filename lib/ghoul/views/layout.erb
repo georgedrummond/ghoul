@@ -9,10 +9,12 @@
     <div class="container">
       <div id="header">
         <a href="<%= url("/") %>" id="logo">Ghoul v<%= Ghoul::VERSION %></a>
+        <% if repos_path_exists? %>
         <ul>
           <li><%= link_to "Repositories", repositories_path %></li>
           <li><a href="<%= url("/new_repo") %>" class="thoughtbot_button">New Repo</a></li>
         </ul>
+        <% end %>
       </div>
       <div id="page">
         <%= yield %>
