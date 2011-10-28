@@ -3,7 +3,6 @@ $:.unshift File.dirname(__FILE__)
 
 
 require "sinatra"
-require "haml"
 require "sass"
 require "georgedrummond_sinatra_helpers"
 require "grit"
