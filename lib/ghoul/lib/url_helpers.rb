@@ -42,8 +42,9 @@ module Ghoul
     end
     alias_method :tree_for_commit_path, :blob_for_commit_path
     
-    def raw_blob_for_commit_path(repository, commit, splat)
-      url "/repository/#{repository}/#{commit}/raw/#{splat}"
+    def raw_blob_for_commit_path(repository, commit, splat="", name="")
+      parts = [repository, commit, "raw", splat, name].find_all { |i| i != ""}
+      url "/repository/#{parts.join("/")}"
     end
     
     def diff_for_commit_path(repository, commit)

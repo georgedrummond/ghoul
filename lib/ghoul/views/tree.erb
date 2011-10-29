@@ -6,11 +6,11 @@
   <% @resource.contents.sort { |a, b| [b.class.name, a.name.downcase] <=> [a.class.name, b.name.downcase] }.each do |f| %>
     <% if f.is_a?(Grit::Tree) %>
       <div class="tree gradient">
-        <div class="name"><%= link_to "#{f.name}/", tree_for_commit_path(@repository, params[:commit], params[:splat][0], f.name) %></div>
+        <div class="name"><%= link_to "#{f.name}/", tree_for_commit_path(@repository, params[:commit], @splat, f.name) %></div>
       </div>
     <% else %>
       <div class="blob gradient">
-        <div class="name"><%= link_to f.name, blob_for_commit_path(@repository, params[:commit], params[:splat][0], f.name) %></div>
+        <div class="name"><%= link_to f.name, blob_for_commit_path(@repository, params[:commit], @splat, f.name) %></div>
       </div>
     <% end %>
   <% end %>
@@ -19,7 +19,7 @@
 <% if @readme %>
   <div id="readme">
     <div class="section_bar gradient">
-      <%=link_to @readme.name, "#" %>
+      <%=link_to @readme.name, raw_blob_for_commit_path(@repository, params[:commit], @splat, @readme.name) %>
     </div>
     <div id="guide" class="bordered">
       <%=@readme_contents %>

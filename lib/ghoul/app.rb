@@ -97,7 +97,7 @@ module Ghoul
       
       if resource.is_a?(Grit::Tree) || params[:splat][0] == ""
         @resource = resource
-        @splat = params[:splat]
+        @splat = params[:splat][0]
         if @resource.contents.detect {|r| r.name.downcase =~ /readme/}
           @readme = @resource.contents.detect {|r| r.name.downcase =~ /readme/ }
           file_extension = @readme.name.split('.').last
