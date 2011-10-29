@@ -102,7 +102,7 @@ module Ghoul
       else
         @blob = resource
         language = CodeRay::FileType[@blob.name]
-        @syntaxer = CodeRay.scan(@blob.data, language).div(:line_numbers => :table)
+        @syntaxer = CodeRay.scan(@blob.data, language).div(:line_numbers => :table, :css => :class)
         erb :blob
       end
     end
