@@ -20,7 +20,7 @@ module Ghoul
       path = []
       crumbs.each do |crumb|
         path << crumb
-        html << "#{link_to( crumb, tree_for_commit_path(repository, commit, splat, path.join('/')) )}"
+        html << "#{link_to( crumb, tree_for_commit_path(repository, commit, path.join('/'), nil ) )}"
       end
       return html.join("/")
     end

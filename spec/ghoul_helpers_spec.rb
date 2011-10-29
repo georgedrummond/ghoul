@@ -36,7 +36,7 @@ describe Ghoul::Helpers do
   
   describe "breadcrumbs from splat" do
     it "should return the correct breadcrumbs" do
-      breadcrumbs_from_splat("repository_name", "commitxyz", "george/drummond").should == "<a href=\"/repository/repository_name/commitxyz/tree/george/drummond/george\">george</a>/<a href=\"/repository/repository_name/commitxyz/tree/george/drummond/george/drummond\">drummond</a>"
+      breadcrumbs_from_splat("repository_name", "commitxyz", "george/drummond").should == "<a href=\"/repository/repository_name/commitxyz/tree/george/\">george</a>/<a href=\"/repository/repository_name/commitxyz/tree/george/drummond/\">drummond</a>"
     end
   end
   
