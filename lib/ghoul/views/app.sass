@@ -235,15 +235,22 @@ h1
       :float left
       :width 100%
       :margin-top 10px
-    .message, .new_repo
+    .gravatar
+      :width 25px
+      :height 25px
+      :float left
+    .latest_commit, .new_repo
       :float left
       :margin-top 3px
-      :font-size 10px
-      :background #fff
-      :border 1px solid #ccc
-      :padding 4px
-      :border-radius 5px
-      :font-weight bold
+      :width 699px
+      p
+        :float left
+        :padding 0 0px 4px 0px
+        :width 100%
+        :font-size 10px
+        &.date
+          :color #999
+      
   
 #diffs
   .diff

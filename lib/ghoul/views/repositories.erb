@@ -10,11 +10,13 @@
         <div class="data">
           <% begin %>
             <% last_commit = commit_from_repository(repo, "trunk") %>
-            <div class="message">
-              Last updated by <%= last_commit.author.name %> on <%= date_format(last_commit.committed_date) %>
+            <%=gravatar_image(last_commit.author.email, 25)%>
+            <div class="latest_commit">
+              <p><%=last_commit.message%></p>
+              <p class="date">Last updated by <%= last_commit.author.name %> on <%= date_format(last_commit.committed_date) %></p>
             </div>
           <% rescue %>
-            <div class="message">New repository</div>
+            <!-- No commits in this repository -->
           <% end %>
         </div>        
       </div>
