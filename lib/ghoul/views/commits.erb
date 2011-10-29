@@ -9,3 +9,12 @@
     </div>
   <% end %>
 </div>
+
+<div id="pagination">
+  <% if @offset+10 < @max_commits %>
+  <a href="<%= commits_path(@repository, @page+1) %>" class="button" id="next">Next</a>
+  <% end %>
+  <% if @page > 1 %>
+  <a href="<%= commits_path(@repository, @page-1) %>" class="button" id="previous">Previous</a>
+  <% end %>
+</div>

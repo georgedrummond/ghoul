@@ -28,8 +28,8 @@ module Ghoul
       return "http://#{@request.host_with_port}/repo/#{repository}"
     end
     
-    def commits_path(repository)
-      url "/repository/#{repository}/commits"
+    def commits_path(repository, page=1)
+      url "/repository/#{repository}/commits/#{page}"
     end
     
     def commit_path(repository, commit)

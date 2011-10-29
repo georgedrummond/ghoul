@@ -5,7 +5,7 @@
 <div id="repositories">
   <% @repositories.each do |repo| %>
     <% unless repo == "." || repo == ".." %>
-      <div class="repository">
+      <div class="repository gradient">
         <div class="name"><%= link_to repo, repository_path(repo) %></div>
         <div class="data">
           <% begin %>

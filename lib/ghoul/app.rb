@@ -8,7 +8,7 @@ module Ghoul
     set :public_folder, File.join(File.dirname(__FILE__), 'public')
     set :views, File.join(File.dirname(__FILE__), 'views')
     
-    disable :logging, :dump_errors, :raise_errors, :show_exceptions
+    #disable :logging, :dump_errors, :raise_errors, :show_exceptions
     
     before '/*' do
       if !repos_path_exists? && params[:splat][0] != "css/app.css"
@@ -60,9 +60,12 @@ module Ghoul
       erb :diff
     end
     
-    get "/repository/:repository/commits/?" do
+    get "/repository/:repository/commits/*" do
+      @page = params[:splat][0].to_i
+      @offset = @page*10-10
       @repository = params[:repository]
-      @commits = repository(@repository).commits
+      @commits = repository(@repository).commits('master', 10, @offset)
+      @max_commits = repository(@repository).commits('master', false, 0).count
       @commit = commit_from_repository @repository, "trunk"
       @newest_commit = commit_from_repository(@repository, "trunk")
       @hide_breadcrumbs = true

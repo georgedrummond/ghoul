@@ -142,7 +142,6 @@ h1
     :border 1px solid #ccc
     :border-top none
     :text-indent 20px
-    :background -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed))
     .name
       :float left
       :padding-left 10px
@@ -172,7 +171,6 @@ h1
   :width 758px
   :border 1px solid #ccc
   :border-bottom none
-  :background -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed))
   a, .title
     :color #333
     :text-decoration none
@@ -234,7 +232,6 @@ h1
     :border-top none
     :float left
     :width 738px
-    :background -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed))
     .data
       :float left
       :width 100%
@@ -311,6 +308,15 @@ form
     :border 1px solid #ccc
   a
     :margin-top 20px
+  
+.gradient
+  :background #ffffff
+  :background -moz-linear-gradient(top, white 0%, #e5e5e5 100%)
+  :background -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #e5e5e5))
+  :background -webkit-linear-gradient(top, white 0%, #e5e5e5 100%)
+  :background -o-linear-gradient(top, white 0%, #e5e5e5 100%)
+  :background -ms-linear-gradient(top, white 0%, #e5e5e5 100%)
+  :background linear-gradient(top, white 0%, #e5e5e5 100%)
 
 #big_link
   :float left
@@ -320,3 +326,11 @@ form
   
 a
   :color dodgerblue
+  
+#pagination
+  :float left
+  :width 100%
+  #next
+    :float right
+  #left
+    :float left
