@@ -170,7 +170,6 @@ h1
   :float left
   :width 758px
   :border 1px solid #ccc
-  :border-bottom none
   a, .title
     :color #333
     :text-decoration none
@@ -256,15 +255,19 @@ h1
 #guide
   :float left
   :width 100%
+  :overflow auto
+  &.bordered
+    :border 1px solid #ccc
   code
     :float left
     :background #f6f9fe
     :padding 5px
     :border 1px solid #ccc
-    :width 740px
+    :width 100%
+    :margin 0 -5px 0 -5px
     :margin 10px 0
     :border-radius 5px
-  h2
+  h1, h2, h3
     :margin-top 40px
     :float left
     :width 100%
@@ -273,15 +276,15 @@ h1
     :margin-top 20px
     :width 100%
     :line-height 22px
-  ul
+  ul, ol
     :float left
-    :margin-left 40px
-    :width 700px
-    :margin-top 10px
+    :margin 10px -40px 10px 40px
+    :width 100%
+
   li
     :float left
     :width 100%
-    :margin-top 10px
+    :margin 10px 0
 
 form
   :float left
@@ -334,3 +337,17 @@ a
     :float right
   #left
     :float left
+    
+#readme
+  :float left
+  :margin-top 30px
+  :width 758px
+  .bordered
+    :float left
+    :width 718px !important
+    :padding 20px
+    :border 1px solid #ccc
+    :border-top none
+  .CodeRay
+    :margin -20px
+    

@@ -1,6 +1,4 @@
-
 $:.unshift File.dirname(__FILE__)
-
 
 require "sinatra"
 require "sass"
@@ -21,4 +19,3 @@ end
 require "version"
 require_all "ghoul/lib"
 require "ghoul/app"
-

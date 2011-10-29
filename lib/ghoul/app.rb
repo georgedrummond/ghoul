@@ -98,6 +98,15 @@ module Ghoul
       if resource.is_a?(Grit::Tree) || params[:splat][0] == ""
         @resource = resource
         @splat = params[:splat]
+        if @resource.contents.detect {|r| r.name.downcase =~ /readme/}
+          @readme = @resource.contents.detect {|r| r.name.downcase =~ /readme/ }
+          file_extension = @readme.name.split('.').last
+          if file_extension == "md"
+            @readme_contents = Redcarpet.new(@readme.data).to_html
+          else
+            @readme_contents = CodeRay.scan(@readme.data, :text).div(:line_numbers => :table, :css => :class)
+          end
+        end
         erb :tree
       else
         @blob = resource

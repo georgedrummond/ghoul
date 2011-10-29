@@ -15,3 +15,14 @@
     <% end %>
   <% end %>
 </div>
+
+<% if @readme %>
+  <div id="readme">
+    <div class="section_bar gradient">
+      <%=link_to @readme.name, "#" %>
+    </div>
+    <div id="guide" class="bordered">
+      <%=@readme_contents %>
+    </div>
+  </div>
+<% end%>
