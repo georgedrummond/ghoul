@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Ghoul::VERSION
   s.authors     = ["George Drummond"]
   s.email       = ["george@accountsapp.com"]
-  s.homepage    = ""
+  s.homepage    = "http://georgedrummond.github.com/ghoul"
   s.summary     = %q{Ghoul is a simple yet good looking interface for your git repositories written in sinatra. It is currently only for demonstration purposes and use on your secure local machine as it does not enforce any authentication as of yet.}
   s.description = %q{Ghoul is a simple yet good looking interface for your git repositories written in sinatra. It is currently only for demonstration purposes and use on your secure local machine as it does not enforce any authentication as of yet.}
 

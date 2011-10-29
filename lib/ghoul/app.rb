@@ -100,8 +100,9 @@ module Ghoul
         @splat = params[:splat]
         erb :tree
       else
-        @blob = resource  
-        @syntaxer = CodeRay.scan(@blob.data, :plain).div(:line_numbers => :table)
+        @blob = resource
+        language = CodeRay::FileType[@blob.name]
+        @syntaxer = CodeRay.scan(@blob.data, language).div(:line_numbers => :table)
         erb :blob
       end
     end
