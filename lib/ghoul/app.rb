@@ -112,7 +112,7 @@ module Ghoul
     end
     
     error do
-      #erb :'error'
+      erb :'error'
     end
     
     error  NoCommits do
