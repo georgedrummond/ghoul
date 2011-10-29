@@ -63,9 +63,6 @@ body
   a
     :color #777
   
-h1
-  :float left
-  :margin 20px 0
 
 #commits
   :float left
@@ -259,40 +256,6 @@ h1
     :overflow none
     :margin-bottom 20px
 
-#guide
-  :float left
-  :width 100%
-  :overflow auto
-  &.bordered
-    :border 1px solid #ccc
-  code
-    :float left
-    :background #f6f9fe
-    :padding 5px
-    :border 1px solid #ccc
-    :width 100%
-    :margin 0 -5px 0 -5px
-    :margin 10px 0
-    :border-radius 5px
-  h1, h2, h3
-    :margin-top 40px
-    :float left
-    :width 100%
-  p
-    :float left
-    :margin-top 20px
-    :width 100%
-    :line-height 22px
-  ul, ol
-    :float left
-    :margin 10px -40px 10px 40px
-    :width 100%
-
-  li
-    :float left
-    :width 100%
-    :margin 10px 0
-
 form
   :float left
   :width 100%
@@ -335,7 +298,7 @@ form
   :font-size 26px
   
 a
-  :color dodgerblue
+  :color #3B5593
   
 #pagination
   :float left
@@ -345,16 +308,74 @@ a
   #left
     :float left
     
+h1
+  :margin-bottom 30px
+      
 #readme
   :float left
   :margin-top 30px
-  :width 758px
-  .bordered
+  :width 718px !important
+  :padding 20px
+  :border 1px solid #ccc
+  :overflow auto
+  table.CodeRay
+    :margin -30px -20px -20px -20px
+    :overflow auto
     :float left
-    :width 718px !important
-    :padding 20px
-    :border 1px solid #ccc
-    :border-top none
-  .CodeRay
+    :width 758px
+    :border none
+  .section_bar
     :margin -20px
+    :border none
+    :border-bottom 1px solid #ccc
+    :margin-bottom 30px
+    
+#guide
+  :float left
+  :width 100%
+  code
+    :padding 3px
+    :background #f6f9fe
+    :border 1px solid #eee
+    :color #555
+  pre
+    :float left
+    :background #f6f9fe
+    :border 1px solid #ccc
+    :width 100%
+    :margin-bottom 20px    
+    :border-radius 5px
+    code
+      :padding 10px
+      :float left
+      :border none
+      :border-radius none
+      :padding none
+      :background none
+
+  h2
+    :margin-top 10px
+    :margin-bottom 10px
+    :border-top 4px solid #f1f1f1   
+    :padding-top 5px
+
+  h1, h2, h3, h4, h5
+    :float left
+    :width 100%
+    :margin-bottom 10px
+  p
+    :float left
+    :margin-bottom 20px
+    :width 100%
+    :line-height 22px
+  ul, ol
+    :float left
+    :margin 0  !important
+    :width 100%
+
+  li
+    :width auto
+    :margin 0 30px 20px 30px
+    :clear both
+
     

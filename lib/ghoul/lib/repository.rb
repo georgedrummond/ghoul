@@ -16,7 +16,8 @@ module Ghoul
     end
     
     def repositories
-      return Dir.entries(repos_path)
+      directory_entries = Dir.entries(repos_path)
+      return directory_entries.find_all { |r| File.directory?( File.join(repos_path, r) ) }
     end
     
     def commit_from_repository(repository, commit_id)

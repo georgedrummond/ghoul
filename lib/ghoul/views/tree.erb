@@ -21,7 +21,7 @@
     <div class="section_bar gradient">
       <%=link_to @readme.name, raw_blob_for_commit_path(@repository, params[:commit], @splat, @readme.name) %>
     </div>
-    <div id="guide" class="bordered">
+    <div id="guide">
       <%=@readme_contents %>
     </div>
   </div>
