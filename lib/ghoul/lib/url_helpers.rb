@@ -37,13 +37,13 @@ module Ghoul
     end
         
     def blob_for_commit_path(repository, commit, splat="", name="")
-      parts = [repository, commit, "tree", splat, name].find_all { |i| i != ""}
+      parts = [repository, commit, "tree", splat, name].find_all { |i| i != ""}.map {|i| i && URI.escape(i)}
       url "/repository/#{parts.join("/")}"
     end
     alias_method :tree_for_commit_path, :blob_for_commit_path
     
     def raw_blob_for_commit_path(repository, commit, splat="", name="")
-      parts = [repository, commit, "raw", splat, name].find_all { |i| i != ""}
+      parts = [repository, commit, "raw", splat, name].find_all { |i| i != ""}.map {|i| i && URI.escape(i)}
       url "/repository/#{parts.join("/")}"
     end
     
