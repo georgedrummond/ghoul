@@ -13,42 +13,42 @@ module Ghoul
     end
     
     def repository_path(repository)
-      url "/repository/#{repository}/trunk/tree"
+      url "/repository/#{URI.escape repository}/trunk/tree"
     end
     
     def repository_git_url(repository)
-      return "http://#{@request.host_with_port}/repo/#{repository}"
+      return "http://#{@request.host_with_port}/repo/#{URI.escape repository}"
     end
     
     def repository_settings_path(repository)
-      url "/repository/#{repository}/settings"
+      url "/repository/#{URI.escape repository}/settings"
     end
     
     def clone_url(repository)
-      return "http://#{@request.host_with_port}/repo/#{repository}"
+      return "http://#{@request.host_with_port}/repo/#{URI.escape repository}"
     end
     
     def commits_path(repository, page=1)
-      url "/repository/#{repository}/commits/#{page}"
+      url "/repository/#{URI.escape repository}/commits/#{page}"
     end
     
     def commit_path(repository, commit)
-      url "/repository/#{repository}/commits/#{commit}"
+      url "/repository/#{URI.escape repository}/commits/#{commit}"
     end
         
     def blob_for_commit_path(repository, commit, splat="", name="")
-      parts = [repository, commit, "tree", splat, name].find_all { |i| i != ""}
+      parts = [repository, commit, "tree", splat, name].find_all { |i| i != ""}.map {|i| i && URI.escape(i)}
       url "/repository/#{parts.join("/")}"
     end
     alias_method :tree_for_commit_path, :blob_for_commit_path
     
     def raw_blob_for_commit_path(repository, commit, splat="", name="")
-      parts = [repository, commit, "raw", splat, name].find_all { |i| i != ""}
+      parts = [repository, commit, "raw", splat, name].find_all { |i| i != ""}.map {|i| i && URI.escape(i)}
       url "/repository/#{parts.join("/")}"
     end
     
     def diff_for_commit_path(repository, commit)
-      url "/repository/#{repository}/#{commit}/diff"
+      url "/repository/#{URI.escape repository}/#{commit}/diff"
     end
   end
 end
