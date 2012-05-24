@@ -102,7 +102,11 @@ module Ghoul
           @readme = @resource.contents.detect {|r| r.name.downcase =~ /readme/ }
           file_extension = @readme.name.split('.').last
           if file_extension == "md"
-            @readme_contents = Redcarpet.new(@readme.data).to_html
+            @readme_contents = Redcarpet::Markdown.new(
+                Redcarpet::Render::HTML,
+                :autolink => true, 
+                :space_after_headers => true
+              ).render(@readme.data)
           else
             @readme_contents = CodeRay.scan(@readme.data, :text).div(:line_numbers => :table, :css => :class)
           end
