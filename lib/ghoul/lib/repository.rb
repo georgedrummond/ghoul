@@ -30,6 +30,7 @@ module Ghoul
     end
     
     def create_repository(name)
+      name = name.rstrip.gsub(' ', '_')
       path = File.join(repos_path, name)
       if File.exist?(path)
        return  false
